@@ -38,6 +38,14 @@ async function run() {
             res.send(result);
         })
 
+        app.get('/aboute/:id', async(req, res) =>{
+            const id = req.params.id;
+            const query = { _id: ObjectId(id)}
+            console.log(query)
+            const editAboute = await abouteUser.findOne(query);
+           res.send(editAboute);
+       })
+
         app.get('/mediaDetails/:id', async(req, res) =>{
             const id = req.params.id;
             const query = { _id: ObjectId(id)}
@@ -45,7 +53,7 @@ async function run() {
             res.send(booking);
         })
 
-        app.patch('/aboute',  async (req, res) => {
+        app.patch('/updateAboute/:id',  async (req, res) => {
             const id = req.params.id;
             const user = req.body;
             const query = { _id: ObjectId(id) }
