@@ -32,20 +32,7 @@ async function run() {
             const result = await socialMediaPost.find(query).sort({like: -1}).toArray();
             res.send(result);
         })
-        app.get('/aboute', async(req, res) =>{
-            const query = {}
-            const result = await abouteUser.find(query).toArray();
-            res.send(result);
-        })
-
-        app.get('/aboute/:id', async(req, res) =>{
-            const id = req.params.id;
-            const query = { _id: ObjectId(id)}
-            console.log(query)
-            const editAboute = await abouteUser.findOne(query);
-           res.send(editAboute);
-       })
-
+   
         app.get('/mediaDetails/:id', async(req, res) =>{
             const id = req.params.id;
             const query = { _id: ObjectId(id)}
