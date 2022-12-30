@@ -32,7 +32,12 @@ async function run() {
             const result = await socialMediaPost.find(query).sort({like: -1}).toArray();
             res.send(result);
         })
-   
+        app.get('/abouteUser', async(req, res) =>{
+            const query = {}
+            const result = await abouteUser.find(query).toArray();
+            res.send(result);
+        })
+
         app.get('/mediaDetails/:id', async(req, res) =>{
             const id = req.params.id;
             const query = { _id: ObjectId(id)}
